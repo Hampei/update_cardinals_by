@@ -3,6 +3,7 @@
 /.config
 /coverage/
 /InstalledFiles
+/local/
 /pkg/
 /spec/reports/
 /spec/examples.txt

@@ -3,8 +3,11 @@ require 'active_support/concern'
 module UpdateCardinalsBy
   extend ActiveSupport::Concern
 
-  # 
-  # returns indifferent hash of new values.
+  # Changes given attributes by delta.
+  # @param attributes, hash from attribute to delta
+  # @param &block Block to execute after making update.
+  #               Will receive indifferent hash from attribute to latest value in db.
+  # @returns indifferent hash from attribute to latest value in db.
   def update_cardinals_by!(attributes, &block)
     db_attributes = attributes.map { |k, v| [self.class.connection.quote_column_name(k), v] }
     updates = db_attributes.map.with_index { |(k, v), i| "#{k} = #{k} + $#{i+1}" }

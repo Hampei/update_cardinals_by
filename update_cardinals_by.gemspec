@@ -13,14 +13,15 @@ Gem::Specification.new do |s|
   s.summary     = "postgres database extension to increment/decrement values safely and get back result."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{lib}/**/*.rb", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "activerecord", "~> 4.2.7"
+  s.required_ruby_version = '>= 2.1'
+  s.add_dependency "activerecord", "~> 4.2.0"
 
   s.add_development_dependency "pg"
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'dotenv'
-  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'rspec', '~> 3.0'
+  s.add_development_dependency 'dotenv', '~> 2.0'
+  s.add_development_dependency 'database_cleaner', '~> 1.0'
 end
