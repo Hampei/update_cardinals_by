@@ -48,14 +48,16 @@ namespace :db do
   end
 
   task :drop => :load_db_settings do
-    %x{ dropdb #{ENV['DATABASE_NAME']} }
+    %x{ dropdb #{ENV['DATABASE_NAME']} --if-exists }
+    puts 'Database dropped'
   end
 
   task :create => :load_db_settings do
     %x{ createdb #{ENV['DATABASE_NAME']} }
+    puts 'Database created'
   end
 
-  task :migrate => :load_db_settings do
+  task :setup => [:drop, :create] do
     ActiveRecord::Base.establish_connection
 
     ActiveRecord::Base.connection.enable_extension 'hstore'
@@ -65,6 +67,6 @@ namespace :db do
       t.decimal  "money"
     end
 
-    puts 'Database migrated'
+    puts 'Database tables created'
   end
 end

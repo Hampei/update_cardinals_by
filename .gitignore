@@ -14,13 +14,8 @@
 # Used by dotenv library to load environment variables.
 .env
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
+# used by appraisal gem to generate gemfiles for different rails versions.
+/gemfiles/
 
 ## Specific to RubyMotion (use of CocoaPods):
 #

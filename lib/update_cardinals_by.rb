@@ -11,7 +11,7 @@ module UpdateCardinalsBy
   def update_cardinals_by!(attributes, &block)
     db_attributes = attributes.map { |k, v| [self.class.connection.quote_column_name(k), v] }
     updates = db_attributes.map.with_index { |(k, v), i| "#{k} = #{k} + $#{i+1}" }
-    binds = db_attributes.map { |k, v| [column_for_attribute(k), v] }
+    binds = attributes.map { |k, v| [column_for_attribute(k), v] }
 
     transaction do
       res = self.class.connection.exec_query(
@@ -21,7 +21,7 @@ module UpdateCardinalsBy
         "returning #{db_attributes.map(&:first).join(', ')}",
         'SQL', binds
       ).first
-       .map { |k, v| [k, column_for_attribute(k).type_cast_from_database(v)] }
+       .map { |k, v| [k, type_for_attribute(k).cast(v)] }
       res = HashWithIndifferentAccess[ res ]
 
       yield res if block_given?
