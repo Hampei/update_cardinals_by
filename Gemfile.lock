@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    update_cardinals_by (0.1.0)
+    update_cardinals_by (0.2.0)
       activerecord (> 5.0, < 6.1)
 
 GEM
