@@ -26,7 +26,10 @@ module UpdateCardinalsBy
 
       yield res if block_given?
 
-      res.each { |attr, v| raw_write_attribute attr, v }
+      res.each do |attr, v|
+        write_attribute attr, v
+        clear_attribute_change attr
+      end
     end
   end
 end
