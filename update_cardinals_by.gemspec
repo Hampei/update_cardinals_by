@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.required_ruby_version = '>= 2.1'
-  s.add_dependency "activerecord", "> 5.0", "< 6.1"
+  s.add_dependency "activerecord", "> 5.0", "< 6.2"
 
   s.add_development_dependency "pg"
   s.add_development_dependency 'rake'
