@@ -37,6 +37,8 @@ end
 
 ## Changelog
 
+0.3.0 changed activerecord support to 6.1 and 7.0
+
 0.2.0 changed activerecord support to 5.2 and 6.0
 
 0.1.0 changed activerecord support from 4.2 to 5.0 and 5.1
