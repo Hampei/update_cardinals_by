@@ -11,14 +11,9 @@ ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-  config.before(:each) do
-    DatabaseCleaner.start
+    ActiveRecord::Tasks::DatabaseTasks.truncate_all
   end
   config.after(:each) do
-    DatabaseCleaner.clean
+    ActiveRecord::Tasks::DatabaseTasks.truncate_all
   end
 end
-
-

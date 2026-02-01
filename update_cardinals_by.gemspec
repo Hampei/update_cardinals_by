@@ -17,12 +17,11 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.required_ruby_version = '>= 2.1'
-  s.add_dependency "activerecord", "> 6.1", "< 7.1"
+  s.add_dependency "activerecord", "> 7.0", "< 8.2"
 
   s.add_development_dependency "pg"
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 3.0'
   s.add_development_dependency 'dotenv', '~> 2.0'
-  s.add_development_dependency 'database_cleaner', '~> 1.0'
   s.add_development_dependency 'appraisal'
 end
